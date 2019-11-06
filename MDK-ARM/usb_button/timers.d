@@ -1,0 +1,16 @@
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
+usb_button\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+usb_button\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+usb_button\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+usb_button\timers.o: ../Inc/FreeRTOSConfig.h
+usb_button\timers.o: ../Inc/main.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+usb_button\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
