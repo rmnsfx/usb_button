@@ -140,6 +140,7 @@ void StartDefaultTask(void const * argument)
 			if(button_counter == 0)
 			{
 				CDC_Transmit_FS((uint8_t*)str_tx_1, strlen(str_tx_1));
+				xTaskNotify( myTask02Handle, 0, eNoAction );
 			}		
 			
 			button_counter++;
@@ -164,7 +165,11 @@ void lightsTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1000);
+		ulTaskNotifyTake( pdTRUE, portMAX_DELAY ); 
+		
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_SET);		
+    osDelay(5000);
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
   }
   /* USER CODE END lightsTask */
 }
