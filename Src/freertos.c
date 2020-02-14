@@ -61,7 +61,7 @@ osThreadId defaultTaskHandle;
 osThreadId myTask02Handle;
 
 /* USER CODE BEGIN Variables */
-
+char str_rx[21];
 /* USER CODE END Variables */
 
 /* Function prototypes -------------------------------------------------------*/
@@ -122,38 +122,60 @@ void StartDefaultTask(void const * argument)
 
   /* USER CODE BEGIN StartDefaultTask */
 	
-	uint8_t str_tx_0[8];
-	sprintf(str_tx_0,"0");
-	
-	uint8_t str_tx_1[8];
-	sprintf(str_tx_1,"1");
-	
-	volatile uint16_t button_counter = 0;
+//	uint8_t str_tx_0[8];
+//	sprintf(str_tx_0,"0");
+//	
+//	uint8_t str_tx_1[8];
+//	sprintf(str_tx_1,"1");
+//	
+//	volatile uint16_t button_counter = 0;
 	
   /* Infinite loop */
   for(;;)
   {
-		if ( !(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3)) )
-		{					
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-			
-			if(button_counter == 0)
-			{
-				CDC_Transmit_FS((uint8_t*)str_tx_1, strlen(str_tx_1));
-				xTaskNotify( myTask02Handle, 0, eNoAction );
-			}		
-			
-			button_counter++;
-		}
-		else
+//		if ( !(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3)) )
+//		{					
+//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+//			
+//			if(button_counter == 0)
+//			{
+//				CDC_Transmit_FS((uint8_t*)str_tx_1, strlen(str_tx_1));
+//				xTaskNotify( myTask02Handle, 0, eNoAction );
+//			}		
+//			
+//			button_counter++;
+//		}
+//		else
+//		{
+//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+//			//CDC_Transmit_FS((uint8_t*)str_tx_0, strlen(str_tx_0));
+//			button_counter = 0;
+//			
+//		}
+		
+		if (str_rx[0] == 0x65)
 		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);		
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);		
+			osDelay(500);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-//				CDC_Transmit_FS((uint8_t*)str_tx_0, strlen(str_tx_0));
-			button_counter = 0;
 			
+			str_rx[0] = 0x00;
+		}
+		
+		if (str_rx[0] == 0x49 || str_rx[0] == 0x69)
+		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);		
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);		
+			osDelay(1500);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+			
+			str_rx[0] = 0x00;
 		}
 			
-    osDelay(100);
+   osDelay(10);
   }
   /* USER CODE END StartDefaultTask */
 }
