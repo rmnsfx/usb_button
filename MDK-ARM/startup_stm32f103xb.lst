@@ -496,11 +496,11 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=usb_button\startup_stm32f103xb.d -ousb_button\startup_stm32f103xb.
-o -I..\Inc -ID:\Repos\usb_button\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.
-2.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0 --predefine="_
-_MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="_RTE_ S
-ETA 1" --predefine="STM32F10X_MD SETA 1" --list=startup_stm32f103xb.lst startup
-_stm32f103xb.s
+o -I..\Inc -IC:\Repos\usb_button\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.
+6.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0 --predefi
+ne="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="_R
+TE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=startup_stm32f103xb.lst st
+artup_stm32f103xb.s
 
 
 
