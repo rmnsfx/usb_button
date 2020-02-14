@@ -153,7 +153,7 @@ void StartDefaultTask(void const * argument)
 //			
 //		}
 		
-		if (str_rx[0] == 0x65)
+		if (str_rx[0] == 0x73 || str_rx[0] == 0x53) //'s' or 'S'
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);		
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);		
@@ -164,7 +164,7 @@ void StartDefaultTask(void const * argument)
 			str_rx[0] = 0x00;
 		}
 		
-		if (str_rx[0] == 0x49 || str_rx[0] == 0x69)
+		if (str_rx[0] == 0x49 || str_rx[0] == 0x69) //'i' or 'I'
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);		
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);		
